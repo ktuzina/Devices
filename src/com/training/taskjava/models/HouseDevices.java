@@ -28,11 +28,22 @@ public class HouseDevices {
         return str;
     }
 
+    public String showPluggedInDevices(){
+        String str = "";
+        System.out.println("List of plugged in devices:\n");
+        for (Device item : devices){
+            if (item.plugIn){
+                str += item.getInfo();
+            }
+        }
+        return str;
+    }
+
     public int countUsedPower(){
         int power = 0;
 
         for (Device item : devices){
-            if (item.plugIn == true){
+            if (item.plugIn){
                 power += item.power;
             }
         }
@@ -47,4 +58,14 @@ public class HouseDevices {
         }
         return "No such device in the house";
     }
+
+    public void plugInDevice(String name){
+        for (Device item : devices){
+            if (item.name.equals(name)){
+                item.plugIn = true;
+            }
+        }
+    }
+
+
 }

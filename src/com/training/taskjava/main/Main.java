@@ -14,7 +14,7 @@ public class Main {
 
         HouseDevices devices = new HouseDevices();
         devices.addDevice(new Fridge("Fridge", 1000, 55, true, true, 5));
-        devices.addDevice(new Iron("Iron", 1500, 4, true, 120, 300));
+        devices.addDevice(new Iron("Iron", 1500, 4, false, 120, 300));
         devices.addDevice(new Washer("Washer", 1200, 40, false, 6, 1000));
 
 
@@ -23,6 +23,7 @@ public class Main {
             System.out.println("1. show house devices and count used power");
             System.out.println("2. sort");
             System.out.println("3. find");
+            System.out.println("4. plug in device");
             System.out.println("0. exit");
 
             Scanner sc = new Scanner(System.in);
@@ -48,6 +49,13 @@ public class Main {
                     System.out.println("Input weight: ");
                     int findWeight = new Scanner(System.in).nextInt();
                     System.out.println(devices.findDevice(findPower, findWeight));
+                    break;
+                case 4:
+                    System.out.println("Input device name: ");
+                    String deviceName = new Scanner(System.in).next();
+                    System.out.println(deviceName);
+                    devices.plugInDevice(deviceName);
+                    System.out.println(devices.showPluggedInDevices());
                     break;
                 default:
                     break;
