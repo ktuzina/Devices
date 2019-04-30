@@ -4,7 +4,7 @@ public class Fridge extends Device {
 
     private boolean noFrost;
     private int shelfCount;
-
+// зачем второй этот кончструктор?
     public Fridge(String name, int power, int weight, boolean plugIn) {
         super(name, power, weight, plugIn);
     }
