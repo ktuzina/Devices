@@ -5,7 +5,8 @@ import com.training.taskjava.models.*;
 
 import java.util.Collections;
 import java.util.Scanner;
-
+// так же я бы разбил этот класс на несколько сервисных. Мейн класс обычно используют как точку входа в программу,
+// в которой нет функционального входа, только вызовы конкретных исполняемых классов
 public class Main {
 
     public static void main(String[] args) {
@@ -39,6 +40,7 @@ public class Main {
                     System.out.println(devices.countUsedPower());
                     break;
                 case 2:
+//                    сортировка по весу с PriceComparator :)
                     Collections.sort(devices.getDevices(), new PriceComparator());
                     System.out.println("Sorted by weight ");
                     System.out.println(devices.showHouseDevices());
