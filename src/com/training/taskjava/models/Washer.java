@@ -4,10 +4,6 @@ public class Washer extends Device {
 
     private int capacity;
     private int spinSpeed;
-//не используемый конструктор?
-    public Washer(String name, int power, int weight, boolean plugIn) {
-        super(name, power, weight, plugIn);
-    }
 
     public Washer(String name, int power, int weight, boolean plugIn, int capacity, int spinSpeed) {
         super(name, power, weight, plugIn);

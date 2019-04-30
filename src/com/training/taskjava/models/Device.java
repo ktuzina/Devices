@@ -1,12 +1,11 @@
 package com.training.taskjava.models;
 
-// как мне кажется лучше этот клас сделать абстрактным
-public class Device {
-// почему эти поля протектед?
-    protected String name;
-    protected int power;
-    protected int weight;
-    protected boolean plugIn;
+public abstract class Device {
+
+    private String name;
+    private int power;
+    private int weight;
+    private boolean plugIn;
 
     public Device(String name, int power, int weight, boolean plugIn) {
         this.name = name;
@@ -39,7 +38,6 @@ public class Device {
         this.weight = weight;
     }
 
-
     public boolean isPlugIn() {
         return plugIn;
     }
@@ -48,10 +46,9 @@ public class Device {
         this.plugIn = plugIn;
     }
 
-//    тебе не нужно отдельный метод для этого, проще оверрадить toString() с необходимым описанием
-    public String getInfo(){
+    @Override
+    public String toString(){
         return "Device: " + this.name + ", power: " + this.power + ", weight: " + this.weight + "\n";
-        //return "Power: " + this.power + ", weight: " + this.weight + ", colour:" + this.colour + "plugIn: " + this.plugIn;
     }
 
     public void plugInDevice(){
