@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 import static java.lang.Math.ceil;
 
-public class PriceComparator implements Comparator<Device> {
+public class WeightComparator implements Comparator<Device> {
     @Override
     public int compare(Device o1, Device o2) {
         return (int) Math.ceil(o1.getWeight() - o2.getWeight());
