@@ -1,27 +1,38 @@
 package com.training.taskjava.services;
 
+import com.training.taskjava.datahandlers.FileDeviceDataHandler;
+import com.training.taskjava.exceptions.NoPluggedInDevicesException;
 import com.training.taskjava.models.Device;
 import com.training.taskjava.models.HouseDevices;
 
 public class ShowDevicesService {
 
-    public static void showHouseDevices(HouseDevices houseDevices){
+    private static final String OUTPUT_DEVICE_DATA_FILE = "output_data.txt";
+
+    public static void showHouseDevices(HouseDevices houseDevices) {
         String str = "";
         System.out.println("List of devices:\n");
-        for (Device item : houseDevices.getDevices()){
+        for (Device item : houseDevices.getDevices()) {
             str += item.toString();
         }
         System.out.println(str);
     }
 
-    public static void showPluggedInDevices(HouseDevices houseDevices){
+    public static void showPluggedInDevices(HouseDevices houseDevices) throws NoPluggedInDevicesException {
         String str = "";
         System.out.println("List of plugged in devices:\n");
-        for (Device item : houseDevices.getDevices()){
-            if (item.isPlugIn()){
+        for (Device item : houseDevices.getDevices()) {
+            if (item.isPlugIn()) {
                 str += item.toString();
             }
         }
-        System.out.println(str);
+        if (str.equals("")) {
+            throw new NoPluggedInDevicesException();
+        } else System.out.println(str);
+    }
+
+    public static void outputToFileHouseDevices(HouseDevices houseDevices) {
+        FileDeviceDataHandler fileWriter = new FileDeviceDataHandler(OUTPUT_DEVICE_DATA_FILE);
+        fileWriter.writeInfo(houseDevices);
     }
 }

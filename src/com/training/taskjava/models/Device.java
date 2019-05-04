@@ -47,11 +47,11 @@ public abstract class Device {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Device: " + this.name + ", power: " + this.power + ", weight: " + this.weight + "\n";
     }
 
-    public void plugInDevice(){
+    public void plugInDevice() {
         this.plugIn = true;
     }
 }
