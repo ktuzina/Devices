@@ -1,9 +1,13 @@
 package com.training.taskjava.services;
 
+import com.training.taskjava.datawriters.TxtFileWriter;
+import com.training.taskjava.exceptions.NoPluggedInDevicesException;
 import com.training.taskjava.models.Device;
 import com.training.taskjava.models.HouseDevices;
 
 public class ShowDevicesService {
+
+    private static final String OUTPUT_DEVICE_DATA_FILE = "output_data.txt";
 
     public static void showHouseDevices(HouseDevices houseDevices){
         String str = "";
@@ -14,7 +18,7 @@ public class ShowDevicesService {
         System.out.println(str);
     }
 
-    public static void showPluggedInDevices(HouseDevices houseDevices){
+    public static void showPluggedInDevices(HouseDevices houseDevices) throws NoPluggedInDevicesException{
         String str = "";
         System.out.println("List of plugged in devices:\n");
         for (Device item : houseDevices.getDevices()){
@@ -22,6 +26,13 @@ public class ShowDevicesService {
                 str += item.toString();
             }
         }
-        System.out.println(str);
+        if (str.equals("")) {
+            throw new NoPluggedInDevicesException();
+        } else System.out.println(str);
+    }
+
+    public static void outputToFileHouseDevices(HouseDevices houseDevices){
+        TxtFileWriter txtReader = new TxtFileWriter(OUTPUT_DEVICE_DATA_FILE);
+        txtReader.writeInfo(houseDevices);
     }
 }

@@ -1,0 +1,3 @@
+0:Fridge1:1000:55:true:true:5
+1:Iron1:1000:3:false:120:300
+2:Washer1:1200:40:false:6:1000
