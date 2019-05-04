@@ -1,6 +1,6 @@
 package com.training.taskjava.services;
 
-import com.training.taskjava.datareaders.TxtFileReader;
+import com.training.taskjava.datahandlers.FileDeviceDataHandler;
 import com.training.taskjava.exceptions.NotFoundDeviceTypeException;
 import com.training.taskjava.models.Fridge;
 import com.training.taskjava.models.HouseDevices;
@@ -11,7 +11,7 @@ public class CreateDeviceDataService {
 
     private static final String DEVICE_DATA_FILE = "data.txt";
 
-    public static HouseDevices addData(){
+    public static HouseDevices addData() {
 
         HouseDevices devices = new HouseDevices();
         devices.addDevice(new Fridge("Fridge", 1000, 55, true, true, 5));
@@ -21,13 +21,13 @@ public class CreateDeviceDataService {
         return devices;
     }
 
-    public static HouseDevices addDataFromFile(){
+    public static HouseDevices addDataFromFile() {
 
         HouseDevices devices = new HouseDevices();
-        TxtFileReader txtReader = new TxtFileReader(DEVICE_DATA_FILE);
+        FileDeviceDataHandler fileReader = new FileDeviceDataHandler(DEVICE_DATA_FILE);
         try {
-            devices = txtReader.readInfo();
-        } catch (NotFoundDeviceTypeException e){
+            devices = fileReader.readInfo();
+        } catch (NotFoundDeviceTypeException e) {
             System.out.println(e.getMessage());
         }
         return devices;

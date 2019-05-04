@@ -6,11 +6,11 @@ import com.training.taskjava.models.HouseDevices;
 
 public class CountPowerService {
 
-    public static int countUsedPower(HouseDevices houseDevices) throws NoPluggedInDevicesException{
+    public static int countUsedPower(HouseDevices houseDevices) throws NoPluggedInDevicesException {
         int power = 0;
 
-        for (Device item : houseDevices.getDevices()){
-            if (item.isPlugIn()){
+        for (Device item : houseDevices.getDevices()) {
+            if (item.isPlugIn()) {
                 power += item.getPower();
             }
         }

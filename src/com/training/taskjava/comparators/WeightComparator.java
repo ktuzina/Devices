@@ -4,8 +4,6 @@ import com.training.taskjava.models.Device;
 
 import java.util.Comparator;
 
-import static java.lang.Math.ceil;
-
 public class WeightComparator implements Comparator<Device> {
     @Override
     public int compare(Device o1, Device o2) {

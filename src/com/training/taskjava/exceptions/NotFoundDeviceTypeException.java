@@ -1,6 +1,6 @@
 package com.training.taskjava.exceptions;
 
-public class NotFoundDeviceTypeException extends Exception{
+public class NotFoundDeviceTypeException extends Exception {
 
     private int type;
 
@@ -8,7 +8,7 @@ public class NotFoundDeviceTypeException extends Exception{
         this.type = type;
     }
 
-    public String getMessage(){
+    public String getMessage() {
         return "[NotFoundDeviceTypeException]: Unexpected type. Record with type=" + this.type + " can't be added";
     }
 }

@@ -1,7 +1,8 @@
 package com.training.taskjava.main;
 
-import com.training.taskjava.models.*;
-import com.training.taskjava.services.*;
+import com.training.taskjava.models.HouseDevices;
+import com.training.taskjava.services.CreateDeviceDataService;
+import com.training.taskjava.services.MenuService;
 
 public class Main {
 

@@ -7,7 +7,7 @@ public class HouseDevices {
 
     private List<Device> devices;
 
-    public HouseDevices(){
+    public HouseDevices() {
         this.devices = new ArrayList<>();
     }
 
@@ -15,7 +15,7 @@ public class HouseDevices {
         return devices;
     }
 
-    public void addDevice(Device device){
+    public void addDevice(Device device) {
         devices.add(device);
     }
 

@@ -12,10 +12,10 @@ import java.util.Scanner;
 
 public class MenuService {
 
-    public static void availableFunctions (HouseDevices devices){
+    public static void availableFunctions(HouseDevices devices) {
         boolean repeat = true;
 
-        while (repeat){
+        while (repeat) {
             System.out.println("1. show house devices and count used power");
             System.out.println("2. sort");
             System.out.println("3. find");
@@ -26,13 +26,13 @@ public class MenuService {
             Scanner sc = new Scanner(System.in);
             try {
                 action = sc.nextInt();
-            } catch (InputMismatchException e){
+            } catch (InputMismatchException e) {
                 System.out.println("Not integer value is entered " + e);
-            } catch (NoSuchElementException e){
+            } catch (NoSuchElementException e) {
                 System.out.println(e);
             }
 
-            switch (action){
+            switch (action) {
                 case 0:
                     repeat = false;
                     break;
@@ -41,7 +41,7 @@ public class MenuService {
                     System.out.println("Used capacity is ");
                     try {
                         System.out.println(CountPowerService.countUsedPower(devices));
-                    } catch (NoPluggedInDevicesException e){
+                    } catch (NoPluggedInDevicesException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
@@ -60,17 +60,17 @@ public class MenuService {
                         findPower = sc.nextInt();
                         System.out.println("Input weight: ");
                         findWeight = sc.nextInt();
-                    } catch (InputMismatchException e){
+                    } catch (InputMismatchException e) {
                         System.out.println("Not integer value is entered " + e);
                         break;
-                    } catch (NoSuchElementException e){
+                    } catch (NoSuchElementException e) {
                         System.out.println(e);
                         break;
                     }
 
                     try {
                         System.out.println(SearchDeviceService.findDeviceByPowerAndWeight(findPower, findWeight, devices));
-                    } catch (FindByPowerAndWeightException e){
+                    } catch (FindByPowerAndWeightException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
@@ -79,9 +79,9 @@ public class MenuService {
                     String deviceName = new Scanner(System.in).next();
                     System.out.println(deviceName);
                     PlugInService.plugInDevice(deviceName, devices);
-                    try{
+                    try {
                         ShowDevicesService.showPluggedInDevices(devices);
-                    } catch (NoPluggedInDevicesException e){
+                    } catch (NoPluggedInDevicesException e) {
                         System.out.println(e.getMessage());
                     }
                     break;

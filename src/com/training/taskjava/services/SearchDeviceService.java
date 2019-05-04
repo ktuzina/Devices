@@ -9,15 +9,15 @@ public class SearchDeviceService {
     public static String findDeviceByPowerAndWeight(int power, int weight, HouseDevices houseDevices) throws FindByPowerAndWeightException {
         String str = "";
 
-        for (Device item: houseDevices.getDevices()){
-            if (item.getPower() == power && item.getWeight() == weight){
+        for (Device item : houseDevices.getDevices()) {
+            if (item.getPower() == power && item.getWeight() == weight) {
                 str += item.toString();
             }
         }
 
-        if (str.equals("")){
+        if (str.equals("")) {
             throw new FindByPowerAndWeightException(power, weight);
-        } else{
+        } else {
             return str;
         }
     }
