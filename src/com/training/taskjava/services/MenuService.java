@@ -12,6 +12,47 @@ import java.util.Scanner;
 
 public class MenuService {
 
+    public static HouseDevices functionsToGetData() {
+        boolean repeat = true;
+        HouseDevices devices = new HouseDevices();
+
+        while (repeat) {
+            System.out.println("1. get data from txt file");
+            System.out.println("2. get data from database");
+            System.out.println("3. get data from xml file");
+
+            int action = -1;
+            Scanner sc = new Scanner(System.in);
+            try {
+                action = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Not integer value is entered " + e);
+            } catch (NoSuchElementException e) {
+                System.out.println(e);
+            }
+
+            switch (action) {
+                case 1:
+                    devices = CreateDeviceDataService.addDataFromFile();
+                    repeat = false;
+                    break;
+                case 2:
+                    devices = CreateDeviceDataService.addDataFromDB();
+                    repeat = false;
+                    break;
+                case 3:
+                    devices = CreateDeviceDataService.addDataFromXML();
+                    repeat = false;
+                    break;
+                default:
+                    repeat = true;
+                    break;
+            }
+        }
+        return devices;
+    }
+
+
     public static void availableFunctions(HouseDevices devices) {
         boolean repeat = true;
 
