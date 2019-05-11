@@ -1,0 +1,26 @@
+<devices>
+    <fridge>
+        <name>Fridge3</name>
+        <power>1000</power>
+        <weight>50</weight>
+        <plugIn>true</plugIn>
+        <noFrost>false</noFrost>
+        <shelfCount>5</shelfCount>
+    </fridge>
+    <iron>
+        <name>Iron3</name>
+        <power>500</power>
+        <weight>8</weight>
+        <plugIn>false</plugIn>
+        <steamOutput>100</steamOutput>
+        <waterCapacity>500</waterCapacity>
+    </iron>
+    <washer>
+        <name>Washer3</name>
+        <power>800</power>
+        <weight>6</weight>
+        <plugIn>false</plugIn>
+        <capacity>9</capacity>
+        <spinSpeed>1000</spinSpeed>
+    </washer>
+</devices>
